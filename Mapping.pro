@@ -19,9 +19,11 @@ CONFIG += console
 SOURCES += main.cpp\
         mainwindow.cpp \
     qtspcomm.cpp \
-    rplidardriver.cpp
+    rplidardriver.cpp \
+    configwidget.cpp
 
 HEADERS  += mainwindow.h \
     datadef.h \
     qtspcomm.h \
-    rplidardriver.h
+    rplidardriver.h \
+    configwidget.h

@@ -2,13 +2,22 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QApplication>
+#include <QDesktopWidget>
 #include <QTextBrowser>
 #include <QWidget>
 #include <QPushButton>
 #include <QGridLayout>
 #include <QLineEdit>
+#include <QComboBox>
+#include <QToolBar>
+#include <QComboBox>
+#include <QGroupBox>
 #include "qtspcomm.h"
 #include "rplidardriver.h"
+#include "configwidget.h"
+
+#define WINDOWPROPORTION 0.8
 
 class MainWindow : public QMainWindow
 {
@@ -30,15 +39,21 @@ protected slots:
 
 private:
     QWidget *mainWidget;
+    QDesktopWidget *infoDesktop;
     QPushButton *clearButton;
     QPushButton *scanButton;
     QPushButton *stopButton;
     QPushButton *forceScanButton;
     QPushButton *expressScanButton;
     QLineEdit *motopwmvalueedit;
-//    QGridLayout *mainLayout;
+    QGridLayout *mainLayout;
+
+    QPushButton *configBtn;
+    ConfigWidget *configwidget;
 
     void layoutManager();
+    void signalstoslots();
+    void initializewidget();
 };
 
 #endif // MAINWINDOW_H

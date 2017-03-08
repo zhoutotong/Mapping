@@ -155,7 +155,7 @@ void RplidarDriver::getsample()
 bool RplidarDriver::cmdConfirm(QByteArray rawd, const int *cmd, int size)
 {
     for(int i = 0; i < size; i++){
-        if(rawd[i] != cmd[i]) return 0;
+        if(rawd[i] != cmd[i]) return 0;//修改为：cmd[i] != rawd[i] 可消除警告，但执行结果错误
     }
     return 1;
 }

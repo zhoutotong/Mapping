@@ -14,9 +14,9 @@ int main(int argc, char *argv[])
     MainWindow w;
 
     rplidar = new RplidarDriver;
-    rplidar->serialConfigura();
+//    rplidar->serialConfigura();
 
-
+    cout << "zhoutotng" << endl;
     w.show();
 
     return a.exec();
