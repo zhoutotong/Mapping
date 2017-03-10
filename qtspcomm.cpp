@@ -23,15 +23,16 @@ QtSPComm::~QtSPComm()
 
 int QtSPComm::FindPortName()
 {
+    portlist.clear();
     foreach(*serialportinfo, QSerialPortInfo::availablePorts())
     {
         portlist << serialportinfo->portName();
     }
     if(portlist.isEmpty())
     {
-        return 1;
+        return 0;
     }
-    return 0;
+    return 1;
 }
 
 int QtSPComm::ConfigureSerialPort(SeriStruct &seristru)
@@ -65,7 +66,7 @@ int QtSPComm::ConfigureSerialPort(SeriStruct &seristru)
             SPCserialport->clear();
 
             getserialflag = 1;
-            connect(SPCserialport, SIGNAL(readyRead()), this, SLOT(readyReadSlot()));
+//            connect(SPCserialport, SIGNAL(readyRead()), this, SLOT(readyReadSlot()));
             emit SerialInfoSignal(*serialportinfo);
             return 0;
         }

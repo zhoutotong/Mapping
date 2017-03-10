@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\qtspcomm.o
+./release\rplidardriver.o
+./release\configwidget.o
+./release\serialconfigwidget.o
+./release\moc_mainwindow.o
+./release\moc_qtspcomm.o
+./release\moc_rplidardriver.o
+./release\moc_configwidget.o
+./release\moc_serialconfigwidget.o
+);

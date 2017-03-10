@@ -20,10 +20,12 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     qtspcomm.cpp \
     rplidardriver.cpp \
-    configwidget.cpp
+    configwidget.cpp \
+    serialconfigwidget.cpp
 
 HEADERS  += mainwindow.h \
     datadef.h \
     qtspcomm.h \
     rplidardriver.h \
-    configwidget.h
+    configwidget.h \
+    serialconfigwidget.h

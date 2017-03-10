@@ -12,31 +12,46 @@ RplidarDriver::~RplidarDriver()
 {
 
 }
+/************************************************************************
+//名称：findSerialPortName(QString &portname)
+//参数:portname:保存已找到的串口号的参数表
+//返回:NULL
+//功能：查找可用的串口号
+//作者：zhoutong
+//日期：2017.03.09
+*************************************************************************/
+void RplidarDriver::findSerialPortName(QStringList &portname)
+{
+    portname.clear();
+    if(serialctr->FindPortName())
+        portname = serialctr->portlist;
+    else portname << "NONE";
+}
 
 void RplidarDriver::serialConfigura()
 {
-    QString str;
-    string portname;
+//    QString str;
+//    string portname;
 
-    cout << "scan commport..." << endl;
+//    cout << "scan commport..." << endl;
 
-    if(serialctr->FindPortName()) cout << "failed to find comm!!!" << endl;
-    else{
-        str = serialctr->portlist.join("\r\n");
-        cout << str.toStdString();
-        cout << endl;
-configport:
-        cout << "select a comm please!" << endl;
-        cin >> portname;
-        serialctr->comminfo.comName = QString().fromStdString(portname);
-        cout << serialctr->comminfo.comName.toStdString() << " configura finish!!!" << endl;
+//    if(serialctr->FindPortName()) cout << "failed to find comm!!!" << endl;
+//    else{
+//        str = serialctr->portlist.join("\r\n");
+//        cout << str.toStdString();
+//        cout << endl;
+//configport:
+//        cout << "select a comm please!" << endl;
+//        cin >> portname;
+//        serialctr->comminfo.comName = QString().fromStdString(portname);
+//        cout << serialctr->comminfo.comName.toStdString() << " configura finish!!!" << endl;
 
-        if(serialctr->ConfigureSerialPort()){
-            cout << "wrong port name!!! select again!!!" << endl;
-            goto configport;
-        }
-        else connect(serialctr->SPCserialport, SIGNAL(readyRead()), this, SLOT(getRAWData()));
-    }
+//        if(serialctr->ConfigureSerialPort()){
+//            cout << "wrong port name!!! select again!!!" << endl;
+//            goto configport;
+//        }
+//        else connect(serialctr->SPCserialport, SIGNAL(readyRead()), this, SLOT(getRAWData()));
+//    }
 }
 
 void RplidarDriver::getRAWData()
@@ -158,4 +173,17 @@ bool RplidarDriver::cmdConfirm(QByteArray rawd, const int *cmd, int size)
         if(rawd[i] != cmd[i]) return 0;//修改为：cmd[i] != rawd[i] 可消除警告，但执行结果错误
     }
     return 1;
+}
+
+/************************************************************************
+//名称：setCommunicatePort(SeriStruct port)
+//参数:portname:保存已找到的串口号的参数表
+//返回:NULL
+//功能：查找可用的串口号
+//作者：zhoutong
+//日期：2017.03.09
+*************************************************************************/
+void RplidarDriver::setCommunicatePort(SeriStruct port)
+{
+//    serialctr->ConfigureSerialPort(port);
 }

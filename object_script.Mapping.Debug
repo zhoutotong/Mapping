@@ -1,0 +1,13 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\qtspcomm.o
+./debug\rplidardriver.o
+./debug\configwidget.o
+./debug\serialconfigwidget.o
+./debug\moc_mainwindow.o
+./debug\moc_qtspcomm.o
+./debug\moc_rplidardriver.o
+./debug\moc_configwidget.o
+./debug\moc_serialconfigwidget.o
+);

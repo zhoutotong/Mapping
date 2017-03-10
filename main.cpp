@@ -7,16 +7,14 @@
 using namespace std;
 
 
-RplidarDriver *rplidar;
+RplidarDriver *rplidar = new RplidarDriver;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
 
-    rplidar = new RplidarDriver;
+//    rplidar = new RplidarDriver;
 //    rplidar->serialConfigura();
-
-    cout << "zhoutotng" << endl;
     w.show();
 
     return a.exec();

@@ -8,6 +8,7 @@
 #include <QGroupBox>
 #include <QLabel>
 #include <QPushButton>
+#include "serialconfigwidget.h"
 
 class ConfigWidget : public QWidget
 {
@@ -16,6 +17,8 @@ public:
     explicit ConfigWidget(QWidget *parent = 0);
 
 signals:
+public:
+    QStringList serialportnamelist;
 
 private:
     QGridLayout *toplayout;
@@ -24,29 +27,17 @@ private:
     QWidget *communicatesetwidget;
     QGroupBox *serialsetgroupbox;
     QGroupBox *networksetgroupbox;
-//串口控件布局器
-    QGridLayout *serialsetlayout;
+
 //网络控件布局器
     QGridLayout *networksetlayout;
 //串口控件
-    QComboBox *serialnamecombobox;
-    QComboBox *serialbaudcombobox;
-    QComboBox *serialstopbitscombobox;
-    QComboBox *serialdatabitcombobox;
-    QComboBox *serialcheckbitcombobox;
-    QComboBox *serialflowctrcombobox;
-    QLabel *serialnamelabel;
-    QLabel *serialbaudlabel;
-    QLabel *serialstopbitslabel;
-    QLabel *serialdatabitlabel;
-    QLabel *serialcheckbitlabel;
-    QLabel *serialflowctrlabel;
-    QPushButton *scanserialportbtn;
+    serialConfigWidget *serialconfigwidget;
 
     void initializeWidget();
     void signalsToSlots();
     void layoutMannager();
 public slots:
+    void refreshPortName();
 };
 
 #endif // CONFIGWIDGET_H

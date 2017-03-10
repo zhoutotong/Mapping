@@ -47,6 +47,7 @@ private:
 
 public:
     void serialConfigura();
+    void findSerialPortName(QStringList &portlist);
     void scan();
     void stop();
     void expressScan();
@@ -54,6 +55,8 @@ public:
     void getinfo();
     void gethealth();
     void getsample();
+public slots:
+    void setCommunicatePort(SeriStruct prot);
 
     bool cmdConfirm(QByteArray rawd, const int *cmd, int size);
 
